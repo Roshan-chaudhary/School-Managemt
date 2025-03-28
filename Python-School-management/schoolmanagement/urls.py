@@ -1,8 +1,6 @@
-"""
+""" URL for Redirection Page """
 
-URL for Redirection Page
 
-"""
 from django.contrib import admin
 from django.urls import path
 from school import views
@@ -26,9 +24,9 @@ urlpatterns = [
     path('adminlogin', LoginView.as_view(template_name='admin/adminlogin.html')),
     path('studentlogin', LoginView.as_view(template_name='student/studentlogin.html')),
     path('teacherlogin', LoginView.as_view(template_name='teacher/teacherlogin.html')),
-
-
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
+
+
 
    # path('logout', LogoutView.as_view(template_name='school/index.html'),name='logout'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
@@ -37,8 +35,6 @@ urlpatterns = [
 
 
     path('admin-dashboard', views.admin_dashboard_view,name='admin-dashboard'),
-
-
     path('admin-teacher', views.admin_teacher_view,name='admin-teacher'),
     path('admin-add-teacher', views.admin_add_teacher_view,name='admin-add-teacher'),
     path('admin-view-teacher', views.admin_view_teacher_view,name='admin-view-teacher'),

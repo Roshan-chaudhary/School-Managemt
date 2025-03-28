@@ -12,11 +12,6 @@ from django.views.decorators.http import require_POST
 
 
 
-
-
-
-
-
 def home_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -207,7 +202,7 @@ def admin_dashboard_view(request):
 
 
 
-#for teacher sectionnnnnnnn by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+#for teacher sectionnnnnnnn by adminnnnnn
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -319,7 +314,7 @@ def admin_view_teacher_salary_view(request):
 
 
 
-#for student by adminnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+#for student by admin
 
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
@@ -509,7 +504,7 @@ def admin_view_fee_view(request,cl):
 
 
 
-#notice related viewsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+#notice related viewsss
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def admin_notice_view(request):
@@ -655,7 +650,7 @@ def student_attendance_view(request):
 
 
 
-# for aboutus and contact ussssssssssssssssssssssssssssssssssssssssssssss
+# for aboutus and contact ussss
 def aboutus_view(request):
     return render(request,'school/aboutus.html')
 
