@@ -166,7 +166,10 @@
       <h3>School Management</h3>
     </div>
     <div class="right_area">
-      <a href="/logout" class="logout_btn">Logout</a>
+      <form action="/logout/" method="POST" class="logout-form">
+        {% csrf_token %}
+        <button type="submit" class="logout_btn">Logout</button>
+      </form>
     </div>
   </header>
   <!--header area end-->
@@ -180,8 +183,8 @@
 
     <a href="/student-dashboard"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
     <a href="/student-attendance"><i class="fas fa-address-card"></i><span>Attendance</span></a>
-    <a href="#"><i class="fas fa-user-edit"></i><span>Leave Request</span></a>
-    <a href="#"><i class="fas fa-file-alt"></i><span>Exam and Result</span></a>
+    <a href="/leave"><i class="fas fa-user-edit"></i><span>Leave Request</span></a>
+    <a href="/homework/student/"><i class="fas fa-file-alt"></i><span>Home-Work</span></a>
     <a href="#"><i class="fas fa-comments"></i><span>Communication</span></a>
     <a href="#"><i class="fas fa-book"></i><span>Course Book</span></a>
     <a href="#"><i class="fas fa-file-alt"></i><span>Exam and Result</span></a>

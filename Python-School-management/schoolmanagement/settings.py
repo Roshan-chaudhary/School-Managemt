@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'school',
     'widget_tweaks',
+    'leave_management',
+    'homework',
 ]
 
 MIDDLEWARE = [
@@ -134,7 +136,10 @@ STATIC_DIR,
 
 
 
-LOGIN_REDIRECT_URL='/afterlogin'
+# settings.py
+LOGIN_URL = '/adminlogin/'
+LOGIN_REDIRECT_URL = 'afterlogin'
+LOGOUT_REDIRECT_URL = '/adminlogin/'
 
 #for contact us give your gmail id and password
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'

@@ -4,10 +4,11 @@ URL for Redirection Page
 
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from school import views
 from django.contrib.auth.views import LoginView,LogoutView 
-
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 
@@ -20,17 +21,17 @@ urlpatterns = [
     path('studentclick', views.studentclick_view),
 
 
-    path('adminsignup', views.admin_signup_view),
+    path('adminlogin/adminsignup', views.admin_signup_view),
     path('studentsignup', views.student_signup_view,name='studentsignup'),
     path('teachersignup', views.teacher_signup_view),
-    path('adminlogin', LoginView.as_view(template_name='admin/adminlogin.html')),
+    path('adminlogin/', LoginView.as_view(template_name='admin/adminlogin.html'),name='adminlogin'),
     path('studentlogin', LoginView.as_view(template_name='student/studentlogin.html')),
     path('teacherlogin', LoginView.as_view(template_name='teacher/teacherlogin.html')),
 
 
     path('afterlogin', views.afterlogin_view,name='afterlogin'),
 
-   # path('logout', LogoutView.as_view(template_name='school/index.html'),name='logout'),
+    path('logout', LogoutView.as_view(template_name='school/index.html'),name='logout'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('logout/', views.custom_logout, name='logout'),
     
@@ -87,4 +88,13 @@ urlpatterns = [
 
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
+
+
+    #MY WORK (UMER)
+    path('leave/',include('leave_management.urls')),
+    path('homework/',include('homework.urls')),
 ]
+
+urlpatterns += static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)
